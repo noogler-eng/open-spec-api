@@ -1,21 +1,20 @@
-import express from "express"
-import cors from "cors"
+import express from "express";
+import cors from "cors";
 // import { app } from "./firebase-config"
-// import swaggerUi from "swagger-ui-express"
-// import swaggerDocument from "../docs.json"
-import addUser from "./addUser"
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "../docs.json";
+import addUser from "./addUser";
 import getAllUser from "./allUser";
 
 const server = express();
 
 server.use(cors());
 server.use(express.json());
-// server.use('/api-docs', swaggerUi.serve);
-// server.get('/api-docs', swaggerUi.setup(swaggerDocument));
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 server.post("/new-user", async(req, res)=>{
-    const username = req.body.username;
-    const email = req.body.email;
+    const username = await req.body?.username;
+    const email = await req.body?.email;
     
     try{
         const id = await addUser(username, email);

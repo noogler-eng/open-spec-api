@@ -12,3 +12,7 @@
 1. contains all paths
 2. contains all the schema of input and output as response
 3. status codes in paths
+
+
+1. for application run ``` node dist/index.js```
+2. for swagger docs run ``` http://localhost:8080/api-docs/ ```
