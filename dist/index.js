@@ -44,7 +44,6 @@ server.post("/new-user", (req, res) => __awaiter(void 0, void 0, void 0, functio
 server.get("/all-users", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield (0, allUser_1.default)();
-        console.log(data);
         res.status(200).json({
             msg: "users data",
             users: data
